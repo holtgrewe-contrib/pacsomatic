@@ -10,9 +10,9 @@
 def checkParameters() {
     def errors = []
 
-    // Check required parameters
-    if (!params.fasta) {
-        errors << "Missing required parameter: --fasta (reference genome FASTA file)"
+    // Check required parameters - either fasta or genome must be provided
+    if (!params.fasta && !params.genome) {
+        errors << "Missing required parameter: --fasta (reference genome FASTA file) or --genome (iGenomes reference ID)"
     }
 
     // Validate workflow type
